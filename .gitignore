@@ -1,5 +1,10 @@
 .gradle
 gradlew
 gradlew.bat
-/.idea/libraries/Gradle__*.xml
 build
+.idea/workspace.xml
+.idea/libraries/
+.idea/sonarlint/issuestore/2/
+.idea/sonarlint/issuestore/4/
+.idea/sonarlint/issuestore/7/
+.idea/sonarlint/issuestore/f/e/
