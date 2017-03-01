@@ -12,7 +12,7 @@ import static java.lang.System.*;
 public class Pyramid {
 
   private static final double BASIC_WEIGHT = 1.0;
-  private final Map<String, Double> CACHE = new HashMap<>();
+  private static final Map<String, Double> WEIGHT_CACHE = new HashMap<>();
 
   public Double calcWeight(int row, int pos) {
     Double weight = 0d;
@@ -25,26 +25,16 @@ public class Pyramid {
       return BASIC_WEIGHT / 2;
 
     String key = row + "::" + pos;
-    if (pos == 0) {
-      weight = CACHE.get(key);
-      if (weight == null) {
-        weight = (calcWeight(row - 1, 0) + BASIC_WEIGHT) / 2;
-        CACHE.put(key, weight);
-      }
-    }
+    weight = WEIGHT_CACHE.get(key);
 
-    if (pos == row) {
-      weight = CACHE.get(key);
-      if (weight == null) {
-        weight = (calcWeight(row - 1, pos - 1) + BASIC_WEIGHT) / 2;
-        CACHE.put(key, weight);
-      }
-    }
-
-    weight = CACHE.get(key);
     if (weight == null) {
-      weight = (calcWeight(row - 1, pos - 1) + BASIC_WEIGHT) / 2 + (calcWeight(row - 1, pos) + BASIC_WEIGHT) / 2;
-      CACHE.put(key, weight);
+      if (pos == 0)
+          weight = (calcWeight(row - 1, 0) + BASIC_WEIGHT) / 2;
+      else if (pos == row)
+        weight = (calcWeight(row - 1, pos - 1) + BASIC_WEIGHT) / 2;
+      else
+        weight = (calcWeight(row - 1, pos - 1) + BASIC_WEIGHT) / 2 + (calcWeight(row - 1, pos) + BASIC_WEIGHT) / 2;
+      WEIGHT_CACHE.put(key, weight);
     }
     return weight;
   }

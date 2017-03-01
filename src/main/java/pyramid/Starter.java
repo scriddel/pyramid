@@ -11,6 +11,8 @@ public class Starter {
     Integer pos = Integer.valueOf(args[1]);
     Pyramid pyramid = new Pyramid();
     pyramid.printWeight(row, pos);
+    pyramid.printWeight(row, pos);
+    pyramid.printWeight(row, pos);
   }
 
 }
