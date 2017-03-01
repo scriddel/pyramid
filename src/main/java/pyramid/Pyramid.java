@@ -51,7 +51,7 @@ public class Pyramid {
 
   public void printWeight(int row, int pos) {
     Double weight = calcWeight(row, pos);
-    out.println(String.format("Weight for element [%d x %d] is %.14f", row, pos, weight));
+    out.println(String.format("Weight for element [%d x %d] is %s", row, pos, weight));
   }
 
 
